@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import { ExpensesContext } from '../context/ExpensesContext';
 import 'react-circular-progressbar/dist/styles.css';
 
-export const BudgetControl = ({ budget, expenses, setBudget, setExpenses, setIsValidBudget }) => {
+export const BudgetControl = () => {
+   const { expenses, budget, setExpensesObj, setBudgetObj } = useContext(ExpensesContext);
 
    const [percentage, setPercentage] = useState(0);
    const [available, setAvailable] = useState(0);
@@ -30,9 +32,14 @@ export const BudgetControl = ({ budget, expenses, setBudget, setExpenses, setIsV
    const handleResetApp = () => {
       const result = confirm('¿Deseas reinicar tu presupuesto y gastos?')
       if (result) {
-         setExpenses([]);
-         setBudget(0);
-         setIsValidBudget(false);
+         setExpensesObj(prev => ({
+            ...prev,
+            expenses: []
+         }));
+         setBudgetObj({
+            budget: 0,
+            isValidBudget: false
+         });
       }
    }
 
