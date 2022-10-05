@@ -1,39 +1,4 @@
-import { useState } from 'react';
-
-const options = [
-   {
-      label: '--Seleccione--',
-      value: ''
-   },
-   {
-      label: 'Ahorro',
-      value: 'ahorro'
-   },
-   {
-      label: 'Comida',
-      value: 'comida'
-   },
-   {
-      label: 'Casa',
-      value: 'casa'
-   },
-   {
-      label: 'Gastos varios',
-      value: 'gastos'
-   },
-   {
-      label: 'Ocio',
-      value: 'ocio'
-   },
-   {
-      label: 'Salud',
-      value: 'salud'
-   },
-   {
-      label: 'Suscripciones',
-      value: 'suscripciones'
-   },
-]
+import { options } from '../helpers';
 
 export const Filter = ({ filter, setFilter }) => {
 
