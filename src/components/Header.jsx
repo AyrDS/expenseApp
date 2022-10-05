@@ -4,8 +4,6 @@ import { NewBudget, BudgetControl } from './';
 
 export const Header = () => {
 
-   /* { setBudget, budget, isValidBudget, setIsValidBudget, expenses, setExpenses } */
-
    const { isValidBudget } = useContext(ExpensesContext);
 
    return (

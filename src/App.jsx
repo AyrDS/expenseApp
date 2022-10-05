@@ -6,24 +6,18 @@ import { ExpensesContext } from './context/ExpensesContext';
 
 export const App = () => {
 
-   const { isValidBudget, modal } = useContext(ExpensesContext);
+   const { isValidBudget, modal, handleNewExpense } = useContext(ExpensesContext);
 
    return (
       <div className={modal ? 'fijar' : ''} >
          <Header />
 
-         {/* {
+         {
             isValidBudget &&
             <>
                <main>
-                  <Filter filter={filter} setFilter={setFilter} />
-                  <ExpensesList
-                     expenses={expenses}
-                     setExpenseEdit={setExpenseEdit}
-                     deleteExpense={deleteExpense}
-                     filter={filter}
-                     filteredExpenses={filteredExpenses}
-                  />
+                  <Filter />
+                  <ExpensesList />
                </main>
                <div className='nuevo-gasto'>
                   <img
@@ -36,7 +30,7 @@ export const App = () => {
          }
 
          {
-            modal &&
+            /* modal &&
             <Modal
                setModal={setModal}
                animationModal={animationModal}
@@ -44,8 +38,8 @@ export const App = () => {
                saveExpense={saveExpense}
                expenseEdit={expenseEdit}
                setExpenseEdit={setExpenseEdit}
-            />
-         } */}
+            /> */
+         }
 
       </div>
    )

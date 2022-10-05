@@ -1,6 +1,10 @@
+import { useContext } from 'react';
+import { ExpensesContext } from '../context/ExpensesContext';
 import { options } from '../helpers';
 
-export const Filter = ({ filter, setFilter }) => {
+export const Filter = () => {
+
+   const { filter, setFilter } = useContext(ExpensesContext);
 
    return (
       <div className='filtros sombra contenedor' >
