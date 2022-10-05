@@ -117,7 +117,7 @@ export const ExpensesProvider = ({ children }) => {
             ...modalObj,
             modal: false
          });
-      }, 500);
+      }, 300);
    }
 
    const deleteExpense = id => {
