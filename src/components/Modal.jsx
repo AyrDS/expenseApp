@@ -7,7 +7,6 @@ import { Msg } from './';
 
 
 export const Modal = () => {
-   /* { setModal, animationModal, setAnimationModal, saveExpense, expenseEdit, setExpenseEdit } */
    const { setModalObj, expenseEdit, setExpensesObj, saveExpense, animationModal } = useContext(ExpensesContext);
 
    const [formValues, setFormValues] = useState({
@@ -21,7 +20,6 @@ export const Modal = () => {
    const { name, quantity, category } = formValues;
 
    useEffect(() => {
-      console.log(expenseEdit);
       if (Object.keys(expenseEdit).length > 0) {
          setFormValues({
             ...formValues,

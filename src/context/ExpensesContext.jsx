@@ -48,6 +48,7 @@ export const ExpensesProvider = ({ children }) => {
    }, [budget]);
 
    useEffect(() => {
+      console.log(expenses);
       localStorage.setItem('expenses', JSON.stringify(expenses) ?? []);
    }, [expenses]);
 
@@ -89,7 +90,6 @@ export const ExpensesProvider = ({ children }) => {
    }
 
    const saveExpense = expense => {
-      console.log(expense);
       if (expense.id) {
          const expenseUpdated = expenses.map(expenseState => expenseState.id === expense.id ? expense : expenseState);
          setExpensesObj({

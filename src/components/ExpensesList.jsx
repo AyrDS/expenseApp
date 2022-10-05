@@ -14,14 +14,9 @@ export const ExpensesList = () => {
                <>
                   <h2>{filteredExpenses.length ? 'Gastos' : 'No hay gastos en esta categoría'}</h2>
                   {
-                     /* filteredExpenses.map(expense => (
-                        <Expense
-                           key={expense.id}
-                           expense={expense}
-                           setExpenseEdit={setExpenseEdit}
-                           deleteExpense={deleteExpense}
-                        />
-                     )) */
+                     filteredExpenses.map(expense => (
+                        <Expense key={expense.id} expense={expense} />
+                     ))
                   }
                </>
                :
