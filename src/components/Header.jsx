@@ -1,25 +1,32 @@
+import { useContext } from 'react';
+import { ExpensesContext } from '../context/ExpensesContext';
 import { NewBudget, BudgetControl } from './';
 
-export const Header = ({ setBudget, budget, isValidBudget, setIsValidBudget, expenses, setExpenses }) => {
+export const Header = () => {
+
+   /* { setBudget, budget, isValidBudget, setIsValidBudget, expenses, setExpenses } */
+
+   const { isValidBudget } = useContext(ExpensesContext);
+
    return (
       <header>
          <h1>Controlador de gastos</h1>
 
          {
-            /* isValidBudget
+            isValidBudget
                ? <BudgetControl
-                  budget={budget}
+                  /* budget={budget}
                   expenses={expenses}
                   setExpenses={setExpenses}
                   setBudget={setBudget}
-                  setIsValidBudget={setIsValidBudget}
+                  setIsValidBudget={setIsValidBudget} */
 
                />
                : <NewBudget
-                  budget={budget}
+                  /* budget={budget}
                   setBudget={setBudget}
-                  setIsValidBudget={setIsValidBudget}
-               /> */
+                  setIsValidBudget={setIsValidBudget} */
+               />
          }
 
 
