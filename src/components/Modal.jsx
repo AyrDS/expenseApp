@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import closeBtn from '../assets/cerrar.svg';
+import { ExpensesContext } from '../context/ExpensesContext';
 import { options } from '../helpers';
 import { Msg } from './';
 
 
 
-export const Modal = ({ setModal, animationModal, setAnimationModal, saveExpense, expenseEdit, setExpenseEdit }) => {
+export const Modal = () => {
+   /* { setModal, animationModal, setAnimationModal, saveExpense, expenseEdit, setExpenseEdit } */
+   const { setModalObj, expenseEdit, setExpensesObj, saveExpense, animationModal } = useContext(ExpensesContext);
 
    const [formValues, setFormValues] = useState({
       name: '',
@@ -18,6 +21,7 @@ export const Modal = ({ setModal, animationModal, setAnimationModal, saveExpense
    const { name, quantity, category } = formValues;
 
    useEffect(() => {
+      console.log(expenseEdit);
       if (Object.keys(expenseEdit).length > 0) {
          setFormValues({
             ...formValues,
@@ -34,11 +38,22 @@ export const Modal = ({ setModal, animationModal, setAnimationModal, saveExpense
    }
 
    const closeModal = () => {
-      setAnimationModal(false);
-      setExpenseEdit({});
-      
+      // setAnimationModal(false);
+      setModalObj(prev => ({
+         ...prev,
+         animationModal: false
+      }));
+
+      setExpensesObj(prev => ({
+         ...prev,
+         expenseEdit: {}
+      }));
+
       setTimeout(() => {
-         setModal(false);
+         setModalObj(prev => ({
+            ...prev,
+            modal: false
+         }));
       }, 500);
    }
 
@@ -71,7 +86,7 @@ export const Modal = ({ setModal, animationModal, setAnimationModal, saveExpense
             className={`formulario ${animationModal ? 'animar' : 'cerrar'}`}
             onSubmit={handleSubmit}
          >
-            <legend>{expenseEdit.name ? 'Editar gasto' : 'Nuevo gasto'}</legend>
+            <legend>{expenseEdit?.name ? 'Editar gasto' : 'Nuevo gasto'}</legend>
             {
                msg && <Msg type='error' >{msg}</Msg>
             }
@@ -115,7 +130,7 @@ export const Modal = ({ setModal, animationModal, setAnimationModal, saveExpense
                </select>
             </div>
 
-            <input type="submit" value={expenseEdit.name ? 'Guardar cambios' : 'Agregar gasto'} />
+            <input type="submit" value={expenseEdit?.name ? 'Guardar cambios' : 'Agregar gasto'} />
          </form >
       </div >
    )

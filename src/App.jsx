@@ -30,15 +30,7 @@ export const App = () => {
          }
 
          {
-            /* modal &&
-            <Modal
-               setModal={setModal}
-               animationModal={animationModal}
-               setAnimationModal={setAnimationModal}
-               saveExpense={saveExpense}
-               expenseEdit={expenseEdit}
-               setExpenseEdit={setExpenseEdit}
-            /> */
+            modal && <Modal />
          }
 
       </div>

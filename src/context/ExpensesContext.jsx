@@ -29,16 +29,16 @@ export const ExpensesProvider = ({ children }) => {
    useEffect(() => {
       if (Object.keys(expenseEdit).length > 0) {
          setModalObj({
-            ...modalObj,
+            animationModal: false,
             modal: true
          });
 
          setTimeout(() => {
             setModalObj({
-               ...modalObj,
+               modal: true,
                animationModal: true
             });
-         }, 500);
+         }, 300);
       }
 
    }, [expenseEdit]);
@@ -71,7 +71,7 @@ export const ExpensesProvider = ({ children }) => {
 
    const handleNewExpense = () => {
       setModalObj({
-         ...modalObj,
+         animationModal: false,
          modal: true
       });
 
@@ -82,13 +82,14 @@ export const ExpensesProvider = ({ children }) => {
 
       setTimeout(() => {
          setModalObj({
-            ...modalObj,
+            modal: true,
             animationModal: true
          });
-      }, 500);
+      }, 300);
    }
 
    const saveExpense = expense => {
+      console.log(expense);
       if (expense.id) {
          const expenseUpdated = expenses.map(expenseState => expenseState.id === expense.id ? expense : expenseState);
          setExpensesObj({
@@ -99,7 +100,9 @@ export const ExpensesProvider = ({ children }) => {
       } else {
          expense.id = generateID();
          expense.date = Date.now();
+         console.log(expense);
          setExpensesObj({
+            ...expensesObj,
             expenses: [...expenses, expense]
          });
       }
@@ -138,6 +141,7 @@ export const ExpensesProvider = ({ children }) => {
       setExpensesObj,
       setFilter,
       setFilteredExpenses,
+      setModalObj
    }
 
    return (
