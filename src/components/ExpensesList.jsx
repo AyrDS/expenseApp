@@ -4,7 +4,6 @@ import { Expense } from './Expense';
 
 
 export const ExpensesList = () => {
-   /* { expenses, setExpenseEdit, deleteExpense, filter, filteredExpenses } */
    const { expenses, setExpensesObj, filteredExpenses, filter } = useContext(ExpensesContext);
 
    return (
@@ -30,14 +29,9 @@ export const ExpensesList = () => {
                   <h2>{expenses.length ? 'Gastos' : '¡No hay gastos todavía!'}</h2>
 
                   {
-                     /* expenses.map(expense => (
-                        <Expense
-                           key={expense.id}
-                           expense={expense}
-                           // setExpenseEdit={setExpenseEdit}
-                           // deleteExpense={deleteExpense}
-                        />
-                     )) */
+                     expenses.map(expense => (
+                        <Expense key={expense.id} expense={expense} />
+                     ))
                   }
                </>
          }

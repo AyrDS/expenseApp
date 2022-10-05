@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { LeadingActions, SwipeableList, SwipeableListItem, SwipeAction, TrailingActions } from 'react-swipeable-list'
+import { ExpensesContext } from '../context/ExpensesContext';
 import { dateFormat } from '../helpers';
 import ahorroIcon from '../assets/icono_ahorro.svg';
 import casaIcon from '../assets/icono_casa.svg';
@@ -20,13 +22,14 @@ const dictionaryIcons = {
    suscripciones: suscripcionesIcon,
 }
 
-export const Expense = ({ expense, setExpenseEdit, deleteExpense }) => {
+export const Expense = ({ expense }) => {
+   const { deleteExpense, setExpensesObj } = useContext(ExpensesContext);
 
    const { category, name, quantity, date, id } = expense;
 
    const leadingActions = () => (
       <LeadingActions>
-         <SwipeAction onClick={() => setExpenseEdit(expense)} >
+         <SwipeAction onClick={() => setExpensesObj(prev => ({ ...prev, expenseEdit: expense }))} >
             Editar
          </SwipeAction>
       </LeadingActions>
