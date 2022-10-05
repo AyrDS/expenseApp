@@ -6,7 +6,7 @@ export const Header = ({ setBudget, budget, isValidBudget, setIsValidBudget, exp
          <h1>Controlador de gastos</h1>
 
          {
-            isValidBudget
+            /* isValidBudget
                ? <BudgetControl
                   budget={budget}
                   expenses={expenses}
@@ -19,7 +19,7 @@ export const Header = ({ setBudget, budget, isValidBudget, setIsValidBudget, exp
                   budget={budget}
                   setBudget={setBudget}
                   setIsValidBudget={setIsValidBudget}
-               />
+               /> */
          }
 
 
