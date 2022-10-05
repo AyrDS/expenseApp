@@ -14,19 +14,8 @@ export const Header = () => {
 
          {
             isValidBudget
-               ? <BudgetControl
-                  /* budget={budget}
-                  expenses={expenses}
-                  setExpenses={setExpenses}
-                  setBudget={setBudget}
-                  setIsValidBudget={setIsValidBudget} */
-
-               />
-               : <NewBudget
-                  /* budget={budget}
-                  setBudget={setBudget}
-                  setIsValidBudget={setIsValidBudget} */
-               />
+               ? <BudgetControl />
+               : <NewBudget />
          }
 
 

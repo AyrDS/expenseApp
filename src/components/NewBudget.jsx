@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { ExpensesContext } from '../context/ExpensesContext';
 import { Msg } from './';
 
 
-export const NewBudget = ({ setBudget, budget, setIsValidBudget }) => {
-
+export const NewBudget = () => {
+   const { setBudgetObj, budget } = useContext(ExpensesContext);
    const [msg, setMsg] = useState('');
 
    const handleBudget = (e) => {
@@ -14,8 +15,12 @@ export const NewBudget = ({ setBudget, budget, setIsValidBudget }) => {
       }
 
       setMsg('');
-      setIsValidBudget(true);
+      setBudgetObj(prev => ({
+         ...prev,
+         isValidBudget: true
+      }));
    }
+
 
    return (
       <div className="contenedor-presupuesto contenedor sombra">
@@ -28,7 +33,7 @@ export const NewBudget = ({ setBudget, budget, setIsValidBudget }) => {
                   type="number"
                   className="nuevo-presupuesto"
                   value={budget}
-                  onChange={(e) => setBudget(Number(e.target.value))}
+                  onChange={(e) => setBudgetObj(prev => ({ ...prev, budget: Number(e.target.value) }))}
                   onFocus={(e) => e.target.select()}
                />
 
