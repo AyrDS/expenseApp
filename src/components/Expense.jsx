@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { LeadingActions, SwipeableList, SwipeableListItem, SwipeAction, TrailingActions } from 'react-swipeable-list'
+import { LeadingActions, SwipeableList, SwipeableListItem, SwipeAction, TrailingActions } from 'react-swipeable-list';
 import { ExpensesContext } from '../context/ExpensesContext';
 import { dateFormat } from '../helpers';
 import ahorroIcon from '../assets/icono_ahorro.svg';
