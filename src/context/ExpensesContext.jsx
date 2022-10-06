@@ -48,7 +48,6 @@ export const ExpensesProvider = ({ children }) => {
    }, [budget]);
 
    useEffect(() => {
-      console.log(expenses);
       localStorage.setItem('expenses', JSON.stringify(expenses) ?? []);
    }, [expenses]);
 

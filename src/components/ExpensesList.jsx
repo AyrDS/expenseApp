@@ -4,7 +4,7 @@ import { Expense } from './Expense';
 
 
 export const ExpensesList = () => {
-   const { expenses, setExpensesObj, filteredExpenses, filter } = useContext(ExpensesContext);
+   const { expenses, filteredExpenses, filter } = useContext(ExpensesContext);
 
    return (
       <div className="listado-gastos contenedor" >
@@ -12,7 +12,7 @@ export const ExpensesList = () => {
          {
             filter ?
                <>
-                  <h2>{filteredExpenses.length ? 'Gastos' : 'No hay gastos en esta categoría'}</h2>
+                  <h2>{filteredExpenses.length > 0 ? 'Gastos' : 'No hay gastos en esta categoría'}</h2>
                   {
                      filteredExpenses.map(expense => (
                         <Expense key={expense.id} expense={expense} />
