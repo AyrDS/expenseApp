@@ -1,6 +1,6 @@
 # Expense App
 Aplicación básica realizada en React, cuyo propósito es el control de gastos del usuario dividido en categorías.
-Persistencia de datos en LocalStorage.
+Persistencia de datos en LocalStorage
 
 ### Instalación
 1. Clonar el repositorio: `git clone https://github.com/AyrDS/expenseApp.git`
